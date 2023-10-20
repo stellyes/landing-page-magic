@@ -141,7 +141,7 @@ body {
           }
         });
 
-      fs.writeFile("./output/index.html", htmlString, (err) => {
+      fs.writeFile(`./${folderName}/index.html`, htmlString, (err) => {
         err
           ? console.error(err);
           : console.log(`File created successfully!\n${numRepos} saved!`);
