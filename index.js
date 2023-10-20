@@ -30,7 +30,7 @@ inquirer
       name: "linkedIn",
     },
   ])
-  .then(function({ username }) {
+  .then(function({ name, location, bio, username, linkedIn }) {
     const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
 
     axios
