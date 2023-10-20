@@ -139,7 +139,7 @@ body {
             ? console.error(`Error creating folder: ${err.message}`)
             : console.log(`Folder '${folderName}' created successfully.`);
           }
-        });
+        }
 
       fs.writeFile(`./${folderName}/index.html`, htmlString, (err) => {
         err
@@ -147,4 +147,4 @@ body {
           : console.log(`File created successfully!\n${numRepos} saved!`);
       });
     });
- 
+  });
