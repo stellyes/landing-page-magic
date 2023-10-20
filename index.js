@@ -67,7 +67,7 @@ inquirer
         numRepos++;
       }
 
-      console.log(htmlRepoList);
+      // console.log(htmlRepoList);
 
       const gitHubURL = `https://github.com/${username}`
       const htmlHead =
