@@ -136,15 +136,15 @@ body {
       if (!fs.existsSync(`./${folderName}`)) {
         fs.mkdir(folderName, (err) => {
           err
-            ? console.error(`Error creating folder: ${err.message}`);
+            ? console.error(`Error creating folder: ${err.message}`)
             : console.log(`Folder '${folderName}' created successfully.`);
           }
         });
 
       fs.writeFile(`./${folderName}/index.html`, htmlString, (err) => {
         err
-          ? console.error(err);
+          ? console.error(err)
           : console.log(`File created successfully!\n${numRepos} saved!`);
       });
     });
-  });
+ 
