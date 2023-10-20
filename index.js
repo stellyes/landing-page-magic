@@ -35,24 +35,32 @@ inquirer
 
     axios
     .get(queryUrl)
-    .then(function(data) {
-      console.log(data);
-      // console.log(data.name);
+    .then(function(response) {
+      // console.log(response);
+      // console.log(response.data.name);
+      // console.log(response.data.html_url);
       
       const nameArray = [];
+      const urlArray = [];
       const nameString = "";
+      const urlString = "";
       let numRepos = 0;
-      for (const repo in data) {
-        const {name} = data.name;
-
+      for (const repo in response.data) {
+        const {name} = response.data.name;
+        const {url} = response.data.html_url;
         nameArray.push(name);
+        urlArray.push(url);
 
         nameString += `${name}\n`
+        urlString += `${url}\n`
         numRepos++;
       }
-
+      
       console.log(nameArray);
       console.log(nameString);
+      console.log(urlArray);
+      console.log(urlString);
+
 
       fs.writeFile("namesFile.txt", nameString, (err) => {
         (err) ? console.error(err) : console.log(`File created successfully!\n${numRepos} saved!`);
