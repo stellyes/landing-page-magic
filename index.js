@@ -135,16 +135,15 @@ body {
       const folderName = 'output';
       if (!fs.existsSync(`./${folderName}`)) {
         fs.mkdir(folderName, (err) => {
-          if (err) {
-            console.error(`Error creating folder: ${err.message}`);
-          } else {
-            // console.log(`Folder '${folderName}' created successfully.`);
+          err
+            ? console.error(`Error creating folder: ${err.message}`);
+            : console.log(`Folder '${folderName}' created successfully.`);
           }
         });
-        
+
       fs.writeFile("./output/index.html", htmlString, (err) => {
         err
-          ? console.error(err)
+          ? console.error(err);
           : console.log(`File created successfully!\n${numRepos} saved!`);
       });
     });
