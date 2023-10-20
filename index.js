@@ -30,43 +30,42 @@ inquirer
     //   name: "linkedIn",
     // },
   ])
-  .then(function({ name, location, bio, username, linkedIn }) {
+  .then(function ({ name, location, bio, username, linkedIn }) {
     const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
 
-    axios
-    .get(queryUrl)
-    .then(function(response) {
+    axios.get(queryUrl).then(function (response) {
       // console.log(response);
-      // console.log(response.data.name);
-      // console.log(response.data.html_url);
-      
+      // console.log(response.data[0].name);
+      // console.log(response.data[0].html_url);
+
       const nameArray = [];
       const urlArray = [];
-      const nameString = "";
-      const urlString = "";
-      let numRepos = 0;
-      for (const repo in response.data) {
-        const {name} = response.data.name;
-        const {url} = response.data.html_url;
-        nameArray.push(name);
-        urlArray.push(url);
+      var nameString = "";
+      var urlString = "";
+      var numRepos = 0;
+      for (const repo of response.data) {
+        // console.log(repo);
+        // const { name } = repo.name;
+        // const { url } = repo.html_url;
+        // console.log(repo.name);
+        // console.log(repo.html_url);
+        nameArray.push(repo.name);
+        urlArray.push(repo.html_url);
 
-        nameString += `${name}\n`
-        urlString += `${url}\n`
+        nameString += `${repo.name}\n`;
+        urlString += `${repo.html_url}\n`;
         numRepos++;
       }
-      
-      console.log(nameArray);
-      console.log(nameString);
-      console.log(urlArray);
-      console.log(urlString);
 
+      // console.log(nameArray);
+      // console.log(nameString);
+      // console.log(urlArray);
+      // console.log(urlString);
 
       fs.writeFile("namesFile.txt", nameString, (err) => {
-        (err) ? console.error(err) : console.log(`File created successfully!\n${numRepos} saved!`);
+        err
+          ? console.error(err)
+          : console.log(`File created successfully!\n${numRepos} saved!`);
       });
     });
   });
-
-
-
