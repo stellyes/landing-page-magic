@@ -59,7 +59,7 @@ inquirer
         urlArray.push(repo.html_url);
 
         htmlRepoList += `
-      <li class="col row justify-content-center"><a href="${repo.html_url}">${repo.name}</a></li>`;
+      <li class="row text-center"><a href="${repo.html_url}">${repo.name}</a></li>`;
 
         nameString += `${repo.name}\n`;
         urlString += `${repo.html_url}\n`;
@@ -112,7 +112,7 @@ body {
     <p class="row justify-content-center my-3 px-4 text-center">${bio}</p>
     </div>
     <div class="custom-box col align-items-center justify-content-center my-3">
-    <ul id="repositories" style="list-style: none">${htmlRepoList}
+    <ul id="repositories" class="my-2" style="list-style: none">${htmlRepoList}
     </ul>
     </div>
     <div id="links" class="row text-center py-3">
