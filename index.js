@@ -69,7 +69,7 @@ inquirer
 
       // console.log(htmlRepoList);
 
-      const gitHubURL = `https://github.com/${username}`
+      const gitHubURL = `https://github.com/${username}`;
       const htmlHead =
 `<!DOCTYPE html>
 <html lang="en">
@@ -84,7 +84,7 @@ inquirer
     />
     <title>Professional Portfolio</title>
   </head>
-`
+`;
         const htmlStyle = 
 `  <style>
 html {
@@ -104,7 +104,7 @@ body {
   box-shadow: 3px 3px 3px #111;
 }
 </style>
-`
+`;
         const htmlBody =
 `<body class="container align-bottoms">
   <div class="custom-box col align-items-center justify-content-center">
@@ -128,7 +128,7 @@ body {
   ></script>
 </body>
 </html>
-`
+`;
       const htmlString = htmlHead + htmlStyle + htmlBody;
 
 
