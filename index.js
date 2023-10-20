@@ -91,7 +91,7 @@ html {
 
 body {
   background: linear-gradient(#777, 30%, #999, 60%, #ccc);
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .custom-box {
@@ -102,8 +102,7 @@ body {
 }
 </style>
 `;
-      const htmlBody = 
-`<body class="container align-bottoms">
+      const htmlBody = `<body class="container align-bottoms">
   <div class="custom-box col align-items-center justify-content-center">
     <h1 class="row justify-content-center my-3">
       Hi! My name is ${firstName}
@@ -143,9 +142,7 @@ body {
       }
 
       fs.writeFile(`./${folderName}/index.html`, htmlString, (err) => {
-        err
-          ? console.error(err)
-          : console.log(`File created successfully!\n${numRepos} saved!`);
+        err ? console.error(err) : console.log(`File created successfully!`);
       });
     });
   });
