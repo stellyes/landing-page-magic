@@ -102,22 +102,26 @@ body {
 }
 </style>
 `;
-      const htmlBody = `<body class="container align-bottoms">
+      const htmlBody = 
+`<body class="container align-bottoms">
   <div class="custom-box col align-items-center justify-content-center">
-    <h1 class="row justify-content-center my-3">Hi! My name is ${firstName}</h1>
+    <h1 class="row justify-content-center my-3">
+      Hi! My name is ${firstName}
+    </h1>
     <h2 class="row justify-content-center font-italic">
-
       Currently located in ${location}
     </h2>
-    <p class="row justify-content-center my-3 px-4 text-center">${bio}</p>
-    </div>
-    <div class="custom-box col align-items-center justify-content-center my-3">
+    <p class="row justify-content-center my-3 px-4 text-center">
+      ${bio}
+    </p>
+  </div>
+  <div class="custom-box col align-items-center justify-content-center my-3">
     <ul id="repositories" class="my-2" style="list-style: none">${htmlRepoList}
     </ul>
-    </div>
-    <div id="links" class="row text-center py-3">
+  </div>
+  <div id="links" class="row text-center py-3">
       <p>${firstName} ${lastName} - <a href="${linkedIn}">LinkedIn</a>, <a href="${gitHubURL}">GitHub</a></p>
-    </div>
+  </div>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
