@@ -54,8 +54,8 @@ inquirer
         urlArray.push(repo.html_url);
 
         htmlRepoList += 
-`<li class="col"><a href="${repo.html_url}">${repo.name}</a></li>
 `
+      <li class="col"><a href="${repo.html_url}">${repo.name}</a></li>`
 
         nameString += `${repo.name}\n`;
         urlString += `${repo.html_url}\n`;
@@ -65,26 +65,49 @@ inquirer
       console.log(htmlRepoList);
 
       const gitHubURL = `https://github.com/${username}`
-      // ${name}
-      // ${location}
-      // ${bio}
-      // ${linkedIn}
+      
+      
+      
+      
 
       const htmlHead =
-      `<!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-            crossorigin="anonymous"
-          />
-          <title>Professional Portfolio</title>
-        </head>
-        `
+`<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <title>Professional Portfolio</title>
+  </head>
+  `
+        const htmlBody =
+`<body class="container align-middle">
+  <div class="col align-items-center">
+    <h1 class="row justify-content-center my-5">Hi! My name is Ryan</h1>
+    <h2 class="row justify-content-center font-italic">
+      Currently located in ${location}
+    </h2>
+    <p class="row justify-content-center py-5 text-center">${bio}</p>
+    <ul id="repositories" style="list-style: none">${htmlRepoList}
+    </ul>
+    <div id="links" class="row justify-content-center">
+      <p>${name} - <a href="${linkedIn}">LinkedIn</a>, <a href="${gitHubURL}">GitHub</a></p>
+    </div>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
+`
 
 
       // console.log(nameArray);
