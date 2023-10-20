@@ -4,31 +4,31 @@ const inquirer = require("inquirer");
 
 inquirer
   .prompt([
+    // {
+    // type: "input",
+    // message: "Enter your name",
+    // name: "name",
+    // },
+    // {
+    //   type: "input",
+    //   message: "Enter your location",
+    //   name: "location",
+    // },
+    // {
+    //   type: "input",
+    //   message: "Enter your bio",
+    //   name: "bio",
+    // },
     {
-    type: "input",
-    message: "Enter your name",
-    name: "name",
-    },
-    {
-      type: "input",
-      message: "Enter your location",
-      name: "location",
-    },
-    {
-      type: "input",
-      message: "Enter your bio",
-      name: "bio",
-    },
-        {
       type: "input",
       message: "Enter your GitHub username",
       name: "username",
     },
-    {
-      type: "input",
-      message: "Enter your LinkedIn URL",
-      name: "linkedIn",
-    },
+    // {
+    //   type: "input",
+    //   message: "Enter your LinkedIn URL",
+    //   name: "linkedIn",
+    // },
   ])
   .then(function({ name, location, bio, username, linkedIn }) {
     const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
