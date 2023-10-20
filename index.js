@@ -4,33 +4,38 @@ const inquirer = require("inquirer");
 
 inquirer
   .prompt([
-    // {
-    // type: "input",
-    // message: "Enter your name",
-    // name: "name",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter your location",
-    //   name: "location",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter your bio",
-    //   name: "bio",
-    // },
+    {
+      type: "input",
+      message: "Enter your first name",
+      name: "firstName",
+    },
+    {
+      type: "input",
+      message: "Enter your last name",
+      name: "lastName",
+    },
+    {
+      type: "input",
+      message: "Enter your location",
+      name: "location",
+    },
+    {
+      type: "input",
+      message: "Enter your bio",
+      name: "bio",
+    },
     {
       type: "input",
       message: "Enter your GitHub username",
       name: "username",
     },
-    // {
-    //   type: "input",
-    //   message: "Enter your LinkedIn URL",
-    //   name: "linkedIn",
-    // },
+    {
+      type: "input",
+      message: "Enter your LinkedIn URL",
+      name: "linkedIn",
+    },
   ])
-  .then(function ({ name, location, bio, username, linkedIn }) {
+  .then(function ({ firstName, lastName, location, bio, username, linkedIn }) {
     const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
 
     axios.get(queryUrl).then(function (response) {
@@ -55,7 +60,7 @@ inquirer
 
         htmlRepoList += 
 `
-      <li class="col"><a href="${repo.html_url}">${repo.name}</a></li>`
+      <li class="col row justify-content-center"><a href="${repo.html_url}">${repo.name}</a></li>`
 
         nameString += `${repo.name}\n`;
         urlString += `${repo.html_url}\n`;
@@ -84,19 +89,40 @@ inquirer
     />
     <title>Professional Portfolio</title>
   </head>
-  `
+`
+const htmlStyle = 
+`  <style>
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(#777, 30%, #999, 60%, #ccc);
+  margin-top: 10%;
+}
+
+.custom-box {
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: #eee;
+  box-shadow: 3px 3px 3px #111;
+}
+</style>
+`
         const htmlBody =
-`<body class="container align-middle">
-  <div class="col align-items-center">
-    <h1 class="row justify-content-center my-5">Hi! My name is Ryan</h1>
+`<body class="container align-bottoms">
+  <div class="custom-box col align-items-center justify-content-center">
+    <h1 class="row justify-content-center my-3">Hi! My name is ${firstName}</h1>
     <h2 class="row justify-content-center font-italic">
+
       Currently located in ${location}
     </h2>
     <p class="row justify-content-center py-5 text-center">${bio}</p>
     <ul id="repositories" style="list-style: none">${htmlRepoList}
     </ul>
     <div id="links" class="row justify-content-center">
-      <p>${name} - <a href="${linkedIn}">LinkedIn</a>, <a href="${gitHubURL}">GitHub</a></p>
+      <p>${firstName} ${lastName} - <a href="${linkedIn}">LinkedIn</a>, <a href="${gitHubURL}">GitHub</a></p>
     </div>
   </div>
 
@@ -110,10 +136,6 @@ inquirer
 `
 
 
-      // console.log(nameArray);
-      // console.log(nameString);
-      // console.log(urlArray);
-      // console.log(urlString);
 
       fs.writeFile("namesFile.txt", nameString, (err) => {
         err
