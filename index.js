@@ -58,9 +58,8 @@ inquirer
         nameArray.push(repo.name);
         urlArray.push(repo.html_url);
 
-        htmlRepoList += 
-`
-      <li class="col row justify-content-center"><a href="${repo.html_url}">${repo.name}</a></li>`
+        htmlRepoList += `
+      <li class="col row justify-content-center"><a href="${repo.html_url}">${repo.name}</a></li>`;
 
         nameString += `${repo.name}\n`;
         urlString += `${repo.html_url}\n`;
@@ -70,8 +69,7 @@ inquirer
       // console.log(htmlRepoList);
 
       const gitHubURL = `https://github.com/${username}`;
-      const htmlHead =
-`<!DOCTYPE html>
+      const htmlHead = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -85,8 +83,7 @@ inquirer
     <title>Professional Portfolio</title>
   </head>
 `;
-        const htmlStyle = 
-`  <style>
+      const htmlStyle = `  <style>
 html {
   width: 100%;
   height: 100%;
@@ -105,18 +102,20 @@ body {
 }
 </style>
 `;
-        const htmlBody =
-`<body class="container align-bottoms">
+      const htmlBody = `<body class="container align-bottoms">
   <div class="custom-box col align-items-center justify-content-center">
     <h1 class="row justify-content-center my-3">Hi! My name is ${firstName}</h1>
     <h2 class="row justify-content-center font-italic">
 
       Currently located in ${location}
     </h2>
-    <p class="row justify-content-center py-5 text-center">${bio}</p>
+    <p class="row justify-content-center my-3 px-4 text-center">${bio}</p>
+    </div>
+    <div class="custom-box col align-items-center justify-content-center my-3">
     <ul id="repositories" style="list-style: none">${htmlRepoList}
     </ul>
-    <div id="links" class="row justify-content-center">
+    </div>
+    <div id="links" class="row text-center py-3">
       <p>${firstName} ${lastName} - <a href="${linkedIn}">LinkedIn</a>, <a href="${gitHubURL}">GitHub</a></p>
     </div>
   </div>
@@ -131,15 +130,14 @@ body {
 `;
       const htmlString = htmlHead + htmlStyle + htmlBody;
 
-
-      const folderName = 'output';
+      const folderName = "output";
       if (!fs.existsSync(`./${folderName}`)) {
         fs.mkdir(folderName, (err) => {
           err
             ? console.error(`Error creating folder: ${err.message}`)
             : console.log(`Folder '${folderName}' created successfully.`);
-          });
-        }
+        });
+      }
 
       fs.writeFile(`./${folderName}/index.html`, htmlString, (err) => {
         err
