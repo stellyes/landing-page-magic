@@ -11,8 +11,11 @@ After cloning the repository, run `npm install` to install all the dependencies 
 ## How to use
 
 Run `node index.js` in your terminal, and you'll be prompted for your basic information.
+
 [![ezgif-com-video-to-gif-1.gif](https://i.postimg.cc/0Qvv8Chx/ezgif-com-video-to-gif-1.gif)](https://postimg.cc/ns3g2qHw)
+
 After entering this information, your landing page will be located in the `output` folder as `index.html`. Opening this file in your browser will show the generated webpage.
+
 [![Screenshot-2023-10-20-at-12-50-12-AM.png](https://i.postimg.cc/d3DxvkQw/Screenshot-2023-10-20-at-12-50-12-AM.png)](https://postimg.cc/N2q4k0rz)
 
 ## Authors
