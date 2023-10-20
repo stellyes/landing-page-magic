@@ -70,11 +70,6 @@ inquirer
       console.log(htmlRepoList);
 
       const gitHubURL = `https://github.com/${username}`
-      
-      
-      
-      
-
       const htmlHead =
 `<!DOCTYPE html>
 <html lang="en">
@@ -90,7 +85,7 @@ inquirer
     <title>Professional Portfolio</title>
   </head>
 `
-const htmlStyle = 
+        const htmlStyle = 
 `  <style>
 html {
   width: 100%;
@@ -134,10 +129,10 @@ body {
 </body>
 </html>
 `
+      const htmlString = htmlHead + htmlStyle + htmlBody;
 
 
-
-      fs.writeFile("namesFile.txt", nameString, (err) => {
+      fs.writeFile("./output/index.html", htmlString, (err) => {
         err
           ? console.error(err)
           : console.log(`File created successfully!\n${numRepos} saved!`);
