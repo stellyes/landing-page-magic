@@ -132,6 +132,16 @@ body {
       const htmlString = htmlHead + htmlStyle + htmlBody;
 
 
+      const folderName = 'output';
+      if (!fs.existsSync(`./${folderName}`)) {
+        fs.mkdir(folderName, (err) => {
+          if (err) {
+            console.error(`Error creating folder: ${err.message}`);
+          } else {
+            // console.log(`Folder '${folderName}' created successfully.`);
+          }
+        });
+        
       fs.writeFile("./output/index.html", htmlString, (err) => {
         err
           ? console.error(err)
